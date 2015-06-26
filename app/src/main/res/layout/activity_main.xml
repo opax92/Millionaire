@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    tools:context="com.opax.sebastian.millionaire.usergui.MainActivity"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/millionaire_main" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@android:color/black"
+        tools:context="com.opax.sebastian.millionaire.usergui.MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Baza pytań: "
+            android:padding="0dp"
+            android:textColor="@android:color/white"
+            android:id="@+id/textView10" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/SpinnerAppTheme"
+            android:id="@+id/spinnerdatabases" />
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@android:color/black"
+        tools:context="com.opax.sebastian.millionaire.usergui.MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Plan rozgrywki: "
+            android:textColor="@android:color/white"
+            android:padding="0dp"
+            android:id="@+id/textView11" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/SpinnerAppTheme"
+            android:id="@+id/spinnergameplan" />
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@android:color/black"
+        tools:context="com.opax.sebastian.millionaire.usergui.MainActivity">
+
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Nick: "
+            android:textColor="@android:color/white"
+            android:padding="0dp"
+            android:id="@+id/textView12" />
+
+       <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"
+            android:maxLength="20"
+            style="@style/EditTextAppTheme"
+            android:gravity="left"
+            android:id="@+id/editText" />-->
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,132 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@android:color/black"
+    tools:context="com.opax.sebastian.millionaire.usergui.GamePlanActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Nazwa pliku: "
+        android:textColor="@android:color/white"
+        android:id="@+id/textView5" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="25"
+        style="@style/EditTextAppTheme"
+        android:textColor="@android:color/white"
+        android:id="@+id/editNameFile" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        style="@style/ButtonAppTheme"
+        android:textColor="@android:color/white"
+        android:id="@+id/btnOk"
+        android:layout_gravity="right" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        style="@style/SpinnerAppTheme"
+        android:layout_gravity="right" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Ilość pytań:"
+        android:id="@+id/textView8" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        style="@style/EditTextAppTheme"
+        android:textColor="@android:color/white"
+        android:enabled="false"
+        android:maxLength="3"
+        android:ems="10"
+        android:id="@+id/editQuantityQuestions" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Kwota:"
+        android:textColor="@android:color/white"
+        android:id="@+id/textView6" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:enabled="false"
+        style="@style/EditTextAppTheme"
+        android:textColor="@android:color/white"
+        android:ems="10"
+        android:maxLength="9"
+        android:id="@+id/editCash" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Poziom pytania"
+        android:id="@+id/textView7" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        style="@style/EditTextAppTheme"
+        android:enabled="false"
+        android:textColor="@android:color/white"
+        android:ems="10"
+        android:maxLength="3"
+        android:id="@+id/editQuestionLevel" />
+
+    <CheckBox
+        android:id="@+id/checkQuaranteed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CheckBoxAppTheme"
+        android:text="Gwarantowane"
+        android:textColor="@android:color/white"
+        android:padding="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="6sp"
+        android:focusable="false">
+    </CheckBox>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="Zapisz"
+        android:enabled="false"
+        style="@style/ButtonAppTheme"
+        android:id="@+id/btnSave"
+        android:layout_gravity="right" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/action_game_plan_delete_file"
+        style="@style/ButtonAppTheme"
+        android:enabled="false"
+        android:id="@+id/btnDelete"
+        android:layout_gravity="right" />
+</LinearLayout>

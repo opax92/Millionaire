@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Milionerzy</string>
+    <string name="question_detail_add">Dodaj pytanie</string>
+    <string name="question_detail_remove">Usuń zaznaczone</string>
+
+    <string name="title_activity_questions_intent">QuestionsIntent</string>
+    <string name="title_activity_question_detail">QuestionDetail</string>
+    <string name="title_activity_add_question">AddQuestionActivity</string>
+    <string name="action_new_game">Nowa gra</string>
+    <string name="action_load_game">Wczytaj grę</string>
+    <string name="action_del_bd">Usuń baze</string>
+    <string name="action_game_plan_editor">Edytor rozgrywki</string>
+    <string name="action_questions_editor">Edytor pytań</string>
+    <string name="action_game_save_game">Zapisz grę</string>
+    <string name="action_game_plan_delete_file">Usuń plan</string>
+    <string name="title_activity_game_plan">GamePlanActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="error_millionaire_activity1">"Błąd w strukturze pliku planu rozgrywki!"</string>
+    <string name="error_millionaire_activity2">Błędna baza pytań względem rozrywki!</string>
+    <string name="value_millionaire_activity_question">Pytanie </string>
+    <string name="value_millionaire_activity_guaranteed">Gwarantowane: </string>
+    <string name="ad_millionaire_activity_your_answer">Twoja odpowiedź</string>
+    <string name="ad_millionaire_activity_message1">Czy to jest Twoja ostateczna decyzja?</string>
+    <string name="ad_yes">Tak</string>
+    <string name="ad_no">Nie</string>
+    <string name="value_question">Odpowiedź</string>
+    <string name="error_game_plan_activity_empty_field">Pole nie może być puste!</string>
+    <string name="error_game_plan_activity_nf">Brak takiego pliku, tworzę nowy plan</string>
+    <string name="error_game_plan_activity_gpe">Błędny plan rozgrywki!</string>
+    <string name="info_game_plan_activity_gpe">Poprawnie zapisano plan rozgrywki.</string>
+    <string name="value_add_question_activity_change_question">Zmień pytanie</string>
+    <string name="error_add_question_activity_wrong_values">Błędne pytanie!</string>
+    <string name="error_add_question_activity_inner_error">Wystąpił błąd wewnętrzny podczas dodawania pytania</string>
+    <string name="error_add_question_activity_duplicate_answers">Odpowiedzi nie mogą się powtarzać!</string>
+    <string name="error_add_question_activity_double_question">Takie pytanie już znajduje się w bazie pytań!</string>
+    <string name="error_millionaire_activity_life_line_use">To koło ratunkowe zostało już wykorzystane!</string>
+    <string name="value_millionaire_activity_ll_phone_title">Telefon do przyjaciela</string>
+    <string name="value_millionaire_activity_ll_phone_msg1">Myślę, że odpowiedź</string>
+    <string name="value_millionaire_activity_ll_phone_msg2">jest prawidłowa</string>
+    <string name="value_game_plan_activity_delete_true">Poprawnie usunięto plan rozgrywki</string>
+    <string name="value_game_plan_activity_delete_False">Błąd przy usuwaniu planu rozgrywki!</string>
+    <string name="value_millionaire_activity_ll_audience_title">Pytanie do publiczności</string>
+    <string name="value_millionaire_activity_win">GRATULACJĘ! WYGRAŁEŚ GŁÓWNĄ KWOTĘ! :):):)</string>
+    <string name="value_millionaire_activity_win_title">Gratulację</string>
+    <string name="value_add_question_activity_good_values">Poprawnie dodano pytanie</string>
+    <string name="value_add_question_activity_good_change">Poprawnie zmieniono pytanie</string>
+</resources>

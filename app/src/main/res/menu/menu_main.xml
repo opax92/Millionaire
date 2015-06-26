@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.opax.sebastian.millionaire.usergui.MainActivity">
+    <item android:id="@+id/action_new_game" android:title="@string/action_new_game"></item>
+  <!-- <item android:id="@+id/action_load_game" android:title="@string/action_load_game"></item>-->
+    <item android:id="@+id/action_game_plan_editor" android:title="@string/action_game_plan_editor"></item>
+    <item android:id="@+id/action_question_editor" android:title="@string/action_questions_editor"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>

@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.opax.sebastian.millionaire.usergui.EditorQuestionsActivity">
+    <item android:id="@+id/action_add_question" android:title="@string/question_detail_add"></item>
+    <!--<item android:id="@+id/action_dell_bd" android:title="@string/action_del_bd"></item>-->
+    <item android:id="@+id/action_del_question" android:title="@string/question_detail_remove"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>
