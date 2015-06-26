@@ -71,8 +71,14 @@ public class MainActivity extends ActionBarActivity {
                 i = new Intent(getApplicationContext(), MillionaireActivity.class);
                 i.putExtra("readGame", "true");
                 startActivity(i);
+
+                
                 return true;*/
+
+
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }
