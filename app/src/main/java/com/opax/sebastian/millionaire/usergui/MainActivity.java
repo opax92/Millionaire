@@ -72,7 +72,7 @@ public class MainActivity extends ActionBarActivity {
                 i.putExtra("readGame", "true");
                 startActivity(i);
 
-                
+
                 return true;*/
 
 
