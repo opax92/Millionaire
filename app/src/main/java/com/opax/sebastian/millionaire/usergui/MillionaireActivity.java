@@ -29,7 +29,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.content.Intent;
 import com.opax.sebastian.millionaire.R;
 import com.opax.sebastian.millionaire.game.*;
@@ -57,8 +56,6 @@ public class MillionaireActivity extends ActionBarActivity {
 
     private Handler handler = new Handler();//do watkow
 
-    private Toast t;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,19 +64,7 @@ public class MillionaireActivity extends ActionBarActivity {
 
         initControls();
         setEnabledAnswersButtons(false);
-        t = new Toast(getApplicationContext());
-        t.setDuration(Toast.LENGTH_SHORT);
 
-        /*Intent i = getIntent();
-        Bundle b = i.getExtras();
-
-        if(b != null) {
-            String r = (String) b.get("readGame");
-            if (r.equals("true")) {
-                readEntertainemnt();
-                return;
-            }
-        }*/
         initGame();
     }
 
@@ -107,48 +92,9 @@ public class MillionaireActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*private boolean readEntertainemnt(){
-        Log.i("bla", " bede czytal");
-        FileInputStream inputStream;
-
-        try {
-            inputStream = getApplicationContext().openFileInput("bla.ser");
-            ObjectInputStream o = new ObjectInputStream(inputStream);
-            entertainment = (Entertainment)o.readObject();
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
-        catch(ClassNotFoundException e){
-            e.printStackTrace();
-        }
-
-        Log.i("bla", "doszlem");
-        return true;
-    }*/
-
-    /*private boolean saveEntertainment(){
-        File file;
-        file = new File(getApplicationContext().getFilesDir(), "bla.ser");
-        // save the object to file
-
-        FileOutputStream outputStream;
-
-        try {
-            outputStream = getApplicationContext().openFileOutput("bla.ser", Context.MODE_PRIVATE);
-           // OutputStreamWriter outwriter = new OutputStreamWriter(outputStream);
-           // BufferedWriter buffwriter = new BufferedWriter(outwriter);
-
-            ObjectOutputStream o = new ObjectOutputStream(outputStream);
-
-            o.writeObject(entertainment);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return true;
-    }*/
 
     private void initControls(){
+
         buttonA = (Button)findViewById(R.id.button);
         buttonB = (Button)findViewById(R.id.button2);
         buttonC = (Button)findViewById(R.id.button3);
@@ -235,8 +181,7 @@ public class MillionaireActivity extends ActionBarActivity {
         List<QuestionDataE> answers = new ArrayList<>(questionDbAdapter.getAllQuestions());//pobieramy wszystkie pytania z bazy danych
 
         if(answers.isEmpty()) {
-            Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity2), Toast.LENGTH_SHORT).show();
-
+            MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity2));
             finish();
             return;
         }
@@ -245,14 +190,14 @@ public class MillionaireActivity extends ActionBarActivity {
         GamePlanData g = new GamePlanData(getApplicationContext(), gamePlanName);//pobieramy z pliku plan rozgrywki
 
         if(!g.readDataFromFile()) {
-            Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity1), Toast.LENGTH_SHORT).show();
+            MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity1));
             getApplicationContext().deleteFile(gamePlanName);
             finish();
             return;
         }
 
         if(!checkGamePlanWithQuestionBase(answers, g)) {
-            Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity2), Toast.LENGTH_SHORT).show();
+            MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity2));
             finish();
             return;
         }
@@ -315,7 +260,7 @@ public class MillionaireActivity extends ActionBarActivity {
                     buttonFifty.setImageResource(R.drawable.fiftyfiftyno);//zmieniamy ikonke przycisku
                     List<String> wrongAnswers = entertainment.getTwoWrongAnswers();//pobieramy zle odpowiedzi
                     if(wrongAnswers == null) {//jesli zwraca null, to znaczy ze pytanie juz zostalo wykorzystane
-                        Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity_life_line_use), Toast.LENGTH_SHORT).show();
+                        MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity_life_line_use));
                         return;
                     }
                     //przechodzimy przez kazda odpowiedz, ktora jest na przyciskach
@@ -344,7 +289,7 @@ public class MillionaireActivity extends ActionBarActivity {
                     buttonFriend.setImageResource(R.drawable.phonefriendno);
                     String friendAnswer = entertainment.phoneHelp();
                     if(friendAnswer == null){
-                        Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity_life_line_use), Toast.LENGTH_SHORT).show();
+                        MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity_life_line_use));
                         return;
                     }
 
@@ -358,7 +303,7 @@ public class MillionaireActivity extends ActionBarActivity {
                     Map<String, Integer> answersKeys = entertainment.getAudienceAnswers();
 
                     if(answersKeys == null){
-                        Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity_life_line_use), Toast.LENGTH_SHORT).show();
+                        MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_millionaire_activity_life_line_use));
                         return;
                     }
 

@@ -18,6 +18,7 @@ import com.opax.sebastian.millionaire.game.SQLite.QuestionDbAdapter;
 import java.util.*;
 
 public class AddQuestionActivity extends Activity {
+
     private Button buttonAdd;
     private EditText editContentQuestion;
     private EditText editLevel;
@@ -48,6 +49,7 @@ public class AddQuestionActivity extends Activity {
     }
 
     private void initControls(QuestionDataParceable q){
+
         buttonAdd = (Button) findViewById(R.id.buttonOk);
         editContentQuestion = (EditText)findViewById(R.id.editContentQuestion);
         editLevel = (EditText)findViewById(R.id.editLevel);
@@ -124,7 +126,7 @@ public class AddQuestionActivity extends Activity {
         public void onClick(View v){
             QuestionDataE q = getQuestionFromControls();
             if(q == null) {
-                Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_add_question_activity_wrong_values), Toast.LENGTH_SHORT).show();
+                MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_add_question_activity_wrong_values));
                 return;
             }
 
@@ -132,7 +134,7 @@ public class AddQuestionActivity extends Activity {
 
             Set<String> set = new HashSet<>(answers);//sprawdzamy, czy w liscie nie ma duplikatow
             if(set.size() < answers.size()){
-                Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_add_question_activity_duplicate_answers), Toast.LENGTH_SHORT).show();
+                MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_add_question_activity_duplicate_answers));
                 return;
             }
 
@@ -140,18 +142,18 @@ public class AddQuestionActivity extends Activity {
 
             if(opt.equals("upgrade")){
                 if(questionDbAdapter.upgradeQuestion(q, questionDataParceable.name) > 0)
-                    Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.value_add_question_activity_good_change), Toast.LENGTH_SHORT).show();
+                    MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.value_add_question_activity_good_change));
                 else
-                    Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_add_question_activity_inner_error), Toast.LENGTH_SHORT).show();
+                    MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_add_question_activity_inner_error));
             }
             else if(opt.equals("add")) {
                 if (questionDbAdapter.isQuestion(q.getName()))
-                    Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_add_question_activity_double_question), Toast.LENGTH_SHORT).show();
+                    MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_add_question_activity_double_question));
                 else {
                     if(questionDbAdapter.addQuestion(q) > 0)
-                        Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.value_add_question_activity_good_values), Toast.LENGTH_SHORT).show();
+                        MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.value_add_question_activity_good_values));
                     else
-                        Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_add_question_activity_inner_error), Toast.LENGTH_SHORT).show();
+                        MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_add_question_activity_inner_error));
                 }
             }
             questionDbAdapter.close();

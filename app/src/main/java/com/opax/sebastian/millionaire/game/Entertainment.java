@@ -152,25 +152,10 @@ public final class Entertainment implements Serializable{
             String goodAnswer = question.getGoodAnswer();
             statistics.getQuestionStatistics().addSelectedAnswer(answer.equals(goodAnswer));
             if (answer.equals(goodAnswer)) {//prawidłow odpowiedz, etap wyzej.
-                LevelGame l = gamePlan.getNextLevel();
-                gameState = StateGame.STARTED;
-                nextId++;
-                statistics.getPlayerStatistics().incrementGoodAnswers();
-
-                if (nextId == gamePlan.getSize()) {//wygrana
-                    guaranteedWinCash = l.cash;
-                    currentWinCash = l.cash;
-                    statistics.getPlayerStatistics().setWinCash(currentWinCash);
-                    stopGame();
-                    return gameState;
-                } else {//jesli dobra odpowiedz, lecz nie koniec gry
-                    if (l.iSguaranteedPrizePool) {
-                        guaranteedWinCash = l.cash;
-                    }
-                    currentWinCash = l.cash;
-                    gameState = StateGame.STARTED;
-                }
-            } else if (!answer.equals(goodAnswer)) {//jesli nie prawidlowa odpowiedz, przegralismy
+                goodAnswerLevelUp();
+                return gameState;
+            }
+             else if (!answer.equals(goodAnswer)) {//jesli nie prawidlowa odpowiedz, przegralismy
                 gameState = StateGame.LOSS;
                 currentWinCash = guaranteedWinCash;
                 statistics.getPlayerStatistics().incrementBadAnswers();
@@ -203,6 +188,26 @@ public final class Entertainment implements Serializable{
 
     public Map<String, Integer> getAudienceAnswers(){
         return lifeLines.getAudienceAnswers();
+    }
+
+    private void goodAnswerLevelUp() {
+        //prawidłow odpowiedz, etap wyzej.
+        LevelGame l = gamePlan.getNextLevel();
+        gameState = StateGame.STARTED;
+        nextId++;
+        statistics.getPlayerStatistics().incrementGoodAnswers();
+
+        if (nextId == gamePlan.getSize()) {//wygrana
+            guaranteedWinCash = l.cash;
+            currentWinCash = l.cash;
+            statistics.getPlayerStatistics().setWinCash(currentWinCash);
+            stopGame();
+        } else {//jesli dobra odpowiedz, lecz nie koniec gry
+            if (l.iSguaranteedPrizePool) {
+                guaranteedWinCash = l.cash;
+            }
+            currentWinCash = l.cash;
+        }
     }
 
     private class LifeLines implements Serializable{

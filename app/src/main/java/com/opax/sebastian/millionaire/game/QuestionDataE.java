@@ -33,6 +33,7 @@ public class QuestionDataE extends QuestionData implements Comparable<QuestionDa
     private final String goodAnswer;
     private final int levelQuestion;
     //private final int id;
+
     @Override
     public int compareTo(QuestionDataE other)
     {

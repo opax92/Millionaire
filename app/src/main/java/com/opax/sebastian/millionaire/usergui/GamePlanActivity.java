@@ -27,6 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GamePlanActivity extends ActionBarActivity {
+
     private GamePlanData g;
     private String[] dataG;
     private int currentPosition;
@@ -204,7 +205,7 @@ public class GamePlanActivity extends ActionBarActivity {
             String nameFile = editNameFile.getText().toString();
 
             if (nameFile.isEmpty()) {
-                Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_game_plan_activity_empty_field), Toast.LENGTH_SHORT).show();
+                MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_game_plan_activity_empty_field));
                 return;
             }
             g = new GamePlanData(getApplicationContext(), nameFile);
@@ -227,7 +228,7 @@ public class GamePlanActivity extends ActionBarActivity {
 
                 setEnabledControls(true);
             } else {
-                Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_game_plan_activity_nf), Toast.LENGTH_SHORT).show();
+                MyToast.getToast(getApplicationContext(),  getApplicationContext().getString(R.string.error_game_plan_activity_nf));
                 btnDelete.setEnabled(false);
                 g = new GamePlanData(getApplicationContext(), nameFile);
                 questionsNumbers.add(1);
@@ -247,7 +248,7 @@ public class GamePlanActivity extends ActionBarActivity {
             String quaranteed = Boolean.toString(checkQuaranteed.isChecked());
 
             if(cash.isEmpty() || level.isEmpty() || quaranteed.isEmpty()) {
-                Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_game_plan_activity_gpe), Toast.LENGTH_SHORT).show();
+                MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_game_plan_activity_gpe));
                 return;
             }
 
@@ -258,11 +259,10 @@ public class GamePlanActivity extends ActionBarActivity {
                 g.addData(dataG[i]);
 
             if(g.writeDataToFile()) {
-                Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.info_game_plan_activity_gpe), Toast.LENGTH_SHORT).show();
-
+                MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.info_game_plan_activity_gpe));
             }
-                else
-                Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.error_game_plan_activity_gpe), Toast.LENGTH_SHORT).show();
+            else
+                MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.error_game_plan_activity_gpe));
         }
     }
 
@@ -271,13 +271,12 @@ public class GamePlanActivity extends ActionBarActivity {
         public void onClick(View v){
             if(g != null)
                 if(getApplicationContext().deleteFile(g.getName())) {
-                    Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.value_game_plan_activity_delete_true), Toast.LENGTH_SHORT).show();
+                    MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.value_game_plan_activity_delete_true));
                     cleanControls();
                     setEnabledControls(false);
                 }
             else
-                    Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.value_game_plan_activity_delete_False), Toast.LENGTH_SHORT).show();
-
+                MyToast.getToast(getApplicationContext(), getApplicationContext().getString(R.string.value_game_plan_activity_delete_False));
         }
     }
 }

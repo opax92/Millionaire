@@ -68,7 +68,7 @@ public class GamePlanData implements Serializable {
                 return false;
             if (!isStringInteger(t[0]) || !isStringInteger(t[1]))
                 return false;
-            if (!t[2].toLowerCase().equals("false") && !t[2].toLowerCase().equals("true"))
+            if (!t[2].equalsIgnoreCase("false") && !t[2].equalsIgnoreCase("true"))
                 return false;
         }
         return true;
@@ -138,8 +138,9 @@ public class GamePlanData implements Serializable {
 
             buffwriter.flush();
             buffwriter.close();
-                outwriter.close();
-                outputStream.close();
+
+            outwriter.close();
+            outputStream.close();
 
         }catch(IOException e){
             Log.e("GamePlanData.java", e.toString());
