@@ -17,4 +17,5 @@ public enum StateGame implements Serializable {
         WAIT_FOR_ANSWER,
         LOSS,
         WIN,
+        //:))
 }
